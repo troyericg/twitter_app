@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter App</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="wrapper">
+		
+		<div id="nav">
+			<div id="nav-inner">
+				<h1>Twitter App</h1>
+				<form id="search">
+					<fieldset>
+						<input id="searchBox" type="text" value="ENTER A TWITTER ID OR HANDLE" />
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div id="main">
+			<!------------  HERE IS WHERE YOUR CODE GOES  ------------>
+			<%= yield %>
+			<div id="tweet-footer">
+				<h4>made, with love, by <a href="http://troyericgriggs.com" target="_blank">troy eric griggs.</a>
+			</div>
+		</div>
+		
+	</div>
+
+
+</body>
+</html>

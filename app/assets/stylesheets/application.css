@@ -1,0 +1,309 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require reset
+ *= require_self
+ *= require_tree .
+ */
+
+/* "Before he swings the bat, a real slugger imagines an 
+      arc inside his heart, arching directly to Heaven." */
+
+
+
+/*BASE STYLES------------------------------------------------------------*/
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#fff;
+	font-size:1em;
+}
+
+
+a:link, a:visited {
+	color:#dd4a58;
+	outline:none;
+	text-decoration:none;
+}
+
+
+a:hover {
+	text-decoration:underline;
+}
+
+
+
+/*PAGE STRUCTURE------------------------------------------------------------*/
+
+#wrapper {
+	display:block;
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	background-color: #f4f4f4;
+}
+
+
+
+/*HEADER------------------------------------------------------------*/
+
+#nav {
+	width:100%;
+	height:300px;
+	background-color: #696272;
+}
+
+#nav-inner {
+	width:970px;
+	margin:0 auto;
+	padding-top: 120px;
+}
+
+#nav h1 {
+	display:inline;
+	float:left;
+	color:#f2f1f3;
+	font-size:60px;
+	font-weight: 100;
+	letter-spacing: 4px;
+	width: 476px;
+}
+
+#nav ul {
+	display:inline;
+	float:left;
+	width:360px;
+	height:60px;
+	background-color: #585260;
+}
+
+#nav #search fieldset input {
+	width:346px;
+	height:60px;
+	background-color: #585260;
+	border:none;
+	color:#bebac4;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:20px;
+	font-weight: 100;
+	padding-left: 14px;
+}
+
+
+/*MAIN STYLES------------------------------------------------------------*/
+
+#main {
+	position:relative;
+	width:970px;
+	margin:-80px auto 40px auto;
+	min-height:800px;
+}
+
+#main h2 {
+	display:inline;
+	float:left;
+	width: 476px;
+	color:#585260;
+/*	font-family: "Futura", sans-serif;*/
+	margin-bottom: 10px;
+}
+
+#main h2 span {
+	color:#47424e;
+	font-weight:600;
+	cursor: pointer;
+}
+
+#main #tweet-stats {
+	position:relative;
+	display:inline;
+	float:left;
+	color: #585260;
+}
+
+#main #tweet-stats ul li {
+	display:inline;
+	float:left;
+	font-weight:200;
+	margin-right:14px;
+	margin-top:0;
+}
+
+#main #tweet-stats ul li span {
+	color:#47424e;
+	font-weight:600;
+}
+
+#main .tweet-container {
+	display:inline;
+	float:left;
+	background-color:#dd4a58;
+	height:100px;
+	width:836px;
+	margin-bottom:20px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.tweet-container .avatar {
+	display:inline;
+	float:left;
+	width:100px;
+	height:100px;
+	border-right:1px solid #fbe7e9;
+}
+
+.tweet-container .tweet-body {
+	display:inline;
+	float:left;
+	height:100px;
+	width:500px;
+	padding:12px 14px;
+
+	border-right:1px solid #fbe7e9;
+	color:#fdf6f6;
+	font-size: 24px;
+	font-weight: 100;
+	line-height: 26px;
+	opacity:0.4;
+}
+
+.tweet-container .tweet-tools {
+	display:inline;
+	float:left;
+	width:200px;
+	height:100px;
+	opacity:0.4;
+}
+
+.tweet-container:hover .tweet-body, .tweet-container:hover .tweet-tools {
+	opacity:1;
+	transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+}
+
+.tweet-tools ul {
+	padding:14px;
+}
+
+.tweet-tools ul li {
+	color:#ea919a;
+	font-size:14px;
+	font-weight:500;
+	margin-bottom:4px;
+}
+
+.tweet-tools ul li.timestamp {
+	margin-bottom:4px;
+}
+
+.tweet-tools ul li span {
+	color:#fdf6f6;
+	font-size: 24px;
+	margin-right: 6px;
+}
+
+
+
+
+
+/*SECONDARY STYLES------------------------------------------------------------*/
+
+#secondary {}
+
+
+
+
+
+
+/*FOOTER------------------------------------------------------------*/
+
+#tweet-footer {
+	display:inline;
+	float: left;
+	width:836px;
+	height:200px;
+	border-top: 1px solid #696272;
+	margin-top:70px;
+	padding-top: 20px;
+}
+
+#tweet-footer h4 {
+	color:#696272;
+	font-size: 26px;
+	font-weight: 200;
+}
+
+
+
+
+/*MISC------------------------------------------------------------*/
+
+.hide {
+	display:none;
+}
+
+a img {
+	border:none;
+}
+
+
+/*  Formerly known as "Clearfix"  */ 
+/*.group {display: inline-block;}*/
+.group:after {content: "."; clear: both;display: block;font-size: 0;height: 0;visibility: hidden;}
+
+
+/*Keeps certain strings from being selectable (highlight-able) on pages.*/
+.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}
+
+
+
+/* CSS3 VENDOR PREFIXES:
+-o-
+-moz-
+-webkit-
+*/
+
+
+
+/*For Responsive Design: 'target' divided by 'context' = 'result'   */
+
+/*LIST OF STARTER MEDIA QUERIES: 
+
+@media only screen and (max-width:320px) {}
+
+@media only screen and (min-width:320px) and (max-width:480px) {}
+
+@media only screen and (min-width:480px) and (max-width:768px) {}
+
+@media only screen and (min-width:768px) and (max-width:960px) {}
+
+@media only screen and (min-width:960px) and (max-width:1440px) {}
+
+@media only screen and (min-width:1440px) {}
+
+*/
+
+
+
+/*The End*/
