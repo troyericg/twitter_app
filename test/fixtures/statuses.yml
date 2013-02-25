@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  screen_name: MyString
+  real_name: MyString
+  num_statuses: 1
+  num_following: 1
+  num_followers: 1
+  img_url: MyString
+  tweet_body: MyText
+
+two:
+  screen_name: MyString
+  real_name: MyString
+  num_statuses: 1
+  num_following: 1
+  num_followers: 1
+  img_url: MyString
+  tweet_body: MyText

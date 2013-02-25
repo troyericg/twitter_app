@@ -1,21 +1,28 @@
-<h2>Username: <span>@TroyEricG</span></h2>
+<h2>Username: <span><%= callTwitter("JSilz911")["screen_name"] %></span></h2>
 <div id="tweet-stats">
+	<ul>
+		<li class="num_tweets">Tweets: <span><%= callTwitter("JSilz911")["num_statuses"] %></span></li>
+		<li class="following">Following: <span><%= callTwitter("JSilz911")["num_following"] %></span></li>
+		<li class="followers">Followers: <span><%= callTwitter("JSilz911")["num_followers"] %></span></li>
+	</ul>
+</div>
+
+<!-- <div id="tweet-stats">
 	<ul>
 		<li class="num_tweets">Tweets: <span>4,218</span></li>
 		<li class="following">Following: <span>313</span></li>
 		<li class="followers">Followers: <span>712</span></li>
 	</ul>
-</div>
+</div> -->
 <div class="tweet-container group">
-	<div class="avatar"></div>
+	<div class="avatar"><%= image_tag(callTwitter("JSilz911")["img_url"]) %></div>
 	<div class="tweet-body">
-		<p>Limp outside to get a bagel and a tea. Man in front complains the line moves too fast. Sir, I can assure you that no one behind you agrees.</p>
+		<p><%= callTwitter("301524565425795072")["tweet_text"] %></p>
 	</div>
 	<div class="tweet-tools">
 		<ul>
 			<li class="timestamp">11:29 A.M.</li>
-			<li class="retweets"><span>20</span>RETWEETS</li>
-			<li class="favorites"><span>7</span>FAVORITES</li>
+			<li class="retweets"><span><%= callTwitter("301524565425795072")["retweet_count"] %></span><br/>RETWEETS</li>
 		</ul>
 	</div>
 </div>
