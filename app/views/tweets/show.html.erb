@@ -1,0 +1,12 @@
+<div class="tweet-container group">
+	<div class="avatar"><%= image_tag(@status.img_url) %></div>
+	<div class="tweet-body">
+		<p><%= @status.tweet_text %></p>
+	</div>
+	<div class="tweet-tools">
+		<ul>
+			<li class="timestamp">11:29 A.M.</li>
+			<li class="retweets"><span><%= @status.retweet_count %></span><br/>RETWEETS</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,6 @@
+<!-- <h1>Add a new tweet</h1> -->
+
+<%= form_for @status, :url => { :action => "create" } do |f| %>
+	<%= f.text_field :screen_name %>
+	<%= f.submit "Create" %>
+<% end %>

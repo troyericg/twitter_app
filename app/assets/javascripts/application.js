@@ -33,12 +33,19 @@ $(document).ready(function(){
 			s.selector.on('blur',function(){
 				textInput.refill(s.selector_val);
 			});
+			s.selector.on('keypress',function(e){
+				if(e.keyCode == 13) { textInput.runRailsMethod(s.selector); };
+			});
 		},
 		empty:function(valu){
 			valu.val("");
 		},
 		refill:function(){
 			s.selector.val(s.selector_val);
+		},
+		runRailsMethod:function(that){
+			console.log(that.val());
+			//<%= remote_function :url => { :action => "callTwitter", :with => that.val() } %>
 		}
 	};
 

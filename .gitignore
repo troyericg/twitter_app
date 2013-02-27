@@ -14,5 +14,8 @@
 /log/*.log
 /tmp
 
-# Ignore rdocs 
+# --------------------------------------
+
 README.rdoc
+
+.DS_Store
