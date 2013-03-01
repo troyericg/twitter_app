@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225135056) do
+ActiveRecord::Schema.define(:version => 20130301135901) do
 
   create_table "statuses", :force => true do |t|
     t.string   "screen_name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20130225135056) do
     t.text     "tweet_body"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "tweet_id"
+    t.integer  "num_retweets"
   end
 
 end

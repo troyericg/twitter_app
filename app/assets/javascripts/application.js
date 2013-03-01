@@ -19,8 +19,8 @@ $(document).ready(function(){
 
 	var s, textInput = {
 		settings:{
-			selector:$("input#searchBox"),
-			selector_val:$("input#searchBox").attr('value')
+			selector:$("#search input"),
+			selector_val:$("#search input").attr('value')
 		},
 		init:function(){
 			s = this.settings,
@@ -33,19 +33,12 @@ $(document).ready(function(){
 			s.selector.on('blur',function(){
 				textInput.refill(s.selector_val);
 			});
-			s.selector.on('keypress',function(e){
-				if(e.keyCode == 13) { textInput.runRailsMethod(s.selector); };
-			});
 		},
 		empty:function(valu){
 			valu.val("");
 		},
 		refill:function(){
-			s.selector.val(s.selector_val);
-		},
-		runRailsMethod:function(that){
-			console.log(that.val());
-			//<%= remote_function :url => { :action => "callTwitter", :with => that.val() } %>
+			s.selector.val("ENTER A TWEET ID");
 		}
 	};
 

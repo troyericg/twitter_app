@@ -84,7 +84,7 @@ a:hover {
 	background-color: #585260;
 }
 
-#nav #search fieldset input {
+#nav #search input {
 	width:346px;
 	height:60px;
 	background-color: #585260;
@@ -158,6 +158,7 @@ a:hover {
 	float:left;
 	width:100px;
 	height:100px;
+	overflow:hidden;
 }
 
 .tweet-container .avatar img {

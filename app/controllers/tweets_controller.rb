@@ -5,7 +5,8 @@ require 'rest-client'
 
 class TweetsController < ApplicationController
 	def index
-		@statuses = Status.all
+		@status = Status.new
+		@statuses = Status.order("created_at DESC").all
 		@latest_status = Status.order("created_at").last
 
 		respond_to do |format|
@@ -25,41 +26,50 @@ class TweetsController < ApplicationController
 
 	def show
 		@statuses = Status.all
-    	@status = Status.find(params[:screen_name])
+    	@status = Status.find(params[:tweet_id])
 
     	respond_to do |format|
       		format.html # show.html.erb
       		format.json { render json: @status }
     	end
-  end
+  	end
 
-  def create
-  	newStatus = callTwitter(params[:screen_name])
-    @status = Status.new(newStatus)
+	def create
+		tweet_obj = callTwitter(params[:status])
+	  	@status = Status.new(params[:status].merge(
+	  		:tweet_body => tweet_obj['tweet_body'], 
+	  		:num_retweets => tweet_obj['retweet_count'], 
+	  		:screen_name => tweet_obj['screen_name'], 
+	  		:real_name => tweet_obj['real_name'], 
+	  		:num_statuses => tweet_obj['num_statuses'], 
+	  		:num_following => tweet_obj['num_following'], 
+	  		:num_followers => tweet_obj['num_followers'], 
+	  		:img_url => tweet_obj['img_url']))
 
-    respond_to do |format|
-      	if @status.save
-        	format.html { redirect_to @status, notice: 'Status was successfully created.' }
-        	format.json { render json: @status, status: :created, location: @status }
-      	else
-        	format.html { render action: "new" }
-        	format.json { render json: @status.errors, status: :unprocessable_entity }
-      	end
-    end
-  end
+	  	respond_to do |format|
+	    	if @status.save
+	      	format.html { redirect_to tweets_url, notice: 'Status was successfully created.' }
+	      	format.json { render json: @status, status: :created, location: @status }
+	    	else
+	      	format.html { render action: "new" }
+	      	format.json { render json: @status.errors, status: :unprocessable_entity }
+	    	end
+	  	end
+	end
 
 
-  def callTwitter(user_or_id)
+	def callTwitter(user_or_id)
 		userURL = "http://api.twitter.com/1/statuses/user_timeline.json?count=100&screen_name="
 		idURL = "https://api.twitter.com/1/statuses/show.json?id="
-		user = user_or_id
+		user = user_or_id['tweet_id']
 
 		if user[0,1].match(/[0-9]/.to_s)
 			twitter_url = idURL + user
 			results = JSON.parse(open(twitter_url).read)
 
 			@tweet_result = {
-				'tweet_text' => results["text"],
+				'tweet_id' => user.to_i,
+				'tweet_body' => results["text"],
 				'retweet_count' => results["retweet_count"],
 				'screen_name' => results["user"]["screen_name"],
 				'real_name' => results["user"]["name"],
