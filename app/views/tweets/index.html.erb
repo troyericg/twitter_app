@@ -1,6 +1,6 @@
 
 <% @statuses.each do |status| %>
-	<h2>Username: <span><%= status.screen_name %></span></h2>
+	<p class="screenname">Username: <span><%= add_links(status.screen_name) %></span></p>
 	<div id="tweet-stats">
 		<ul>
 			<li class="num_tweets">Tweets: <span><%= status.num_statuses %></span></li>

@@ -69,13 +69,14 @@ a:hover {
 	padding-top: 120px;
 }
 
-#nav h1 {
+#nav h1, #nav h1 a {
 	display:inline;
 	float:left;
 	color:#f2f1f3;
 	font-size:60px;
 	font-weight: 100;
 	letter-spacing: 4px;
+	text-decoration:none;
 	width: 476px;
 }
 
@@ -110,7 +111,7 @@ a:hover {
 	min-height:800px;
 }
 
-#main h2 {
+#main p.screenname {
 	display:inline;
 	float:left;
 	width: 476px;
@@ -119,10 +120,9 @@ a:hover {
 	margin-bottom: 10px;
 }
 
-#main h2 span {
+#main p.screenname span {
 	color:#47424e;
 	font-weight:600;
-	cursor: pointer;
 }
 
 #main #tweet-stats {

@@ -1,5 +1,5 @@
 <div class="tweet-container group">
-	<div class="avatar"><%= image_tag(@status.img_url) %></div>
+	<div class="avatar" style="background:url(<%= status.img_url %>); background-size:cover;"></div>
 	<div class="tweet-body">
 		<p><%= @status.tweet_text %></p>
 	</div>
