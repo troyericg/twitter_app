@@ -13,6 +13,9 @@
  *= require_tree .
  */
 
+
+
+
 /* "Before he swings the bat, a real slugger imagines an 
       arc inside his heart, arching directly to Heaven." */
 
@@ -28,7 +31,7 @@ body {
 
 
 a:link, a:visited {
-	color:#dd4a58;
+	color:#fff;
 	outline:none;
 	text-decoration:none;
 }
@@ -239,8 +242,6 @@ a:hover {
 	float: left;
 	width:836px;
 	height:200px;
-	border-top: 1px solid #696272;
-	margin-top:70px;
 	padding-top: 20px;
 }
 
@@ -248,6 +249,10 @@ a:hover {
 	color:#696272;
 	font-size: 26px;
 	font-weight: 200;
+}
+
+#tweet-footer h4 a {
+	color:#dd4a58;
 }
 
 

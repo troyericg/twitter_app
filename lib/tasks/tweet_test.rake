@@ -18,7 +18,7 @@ namespace :tweet do
 
 
 		def callTwitter(user_or_id)
-			userURL = "http://api.twitter.com/1/statuses/user_timeline.json?count=100&screen_name="
+			userURL = "http://api.twitter.com/1/statuses/user_timeline.json?count=1&screen_name="
 			idURL = "https://api.twitter.com/1/statuses/show.json?id="
 			user = user_or_id
 
@@ -44,6 +44,9 @@ namespace :tweet do
 				results = JSON.parse(open(twitter_url).read)
 
 				@tweet_result = {
+					'tweet_id' => results[0]["id"],
+					'tweet_body' => results[0]["text"],
+					'retweet_count' => results[0]["retweet_count"],
 					'screen_name' => results[0]["user"]["screen_name"],
 					'real_name' => results[0]["user"]["name"],
 					'num_statuses' => results[0]["user"]["statuses_count"],
@@ -56,7 +59,7 @@ namespace :tweet do
 		end
 
 
-		tweet_obj = callTwitter(user_id)
+		tweet_obj = callTwitter(user_name)
 		puts 
 		puts "Screen Name:"
 		puts tweet_obj['screen_name']

@@ -38,11 +38,23 @@ $(document).ready(function(){
 			valu.val("");
 		},
 		refill:function(){
-			s.selector.val("ENTER A TWEET ID");
+			s.selector.val("ENTER A TWEET ID OR USERNAME");
 		}
 	};
 
 	textInput.init();
+
+
+	// Forces all external links to open in a new window.
+	$("a").click(function() {
+		var link_host = this.href.split("/")[2];
+		var document_host = document.location.href.split("/")[2];
+
+		if (link_host != document_host) {
+			window.open(this.href);
+			return false;
+		}
+	});
 
 });
 

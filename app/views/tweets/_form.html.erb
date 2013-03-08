@@ -1,6 +1,6 @@
 <!-- <h1>Add a new tweet</h1> -->
 
 <%= form_for @status, :url => { :action => "create" } do |f| %>
-	<%= f.text_field :tweet_id, :value => "ENTER A TWEET ID" %>
+	<%= f.text_field :tweet_id, :value => "ENTER A TWEET ID OR USERNAME" %>
 <!-- 	# <%= f.submit "Create" %> -->
 <% end %>

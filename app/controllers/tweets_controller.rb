@@ -59,7 +59,7 @@ class TweetsController < ApplicationController
 
 
 	def callTwitter(user_or_id)
-		userURL = "http://api.twitter.com/1/statuses/user_timeline.json?count=100&screen_name="
+		userURL = "http://api.twitter.com/1/statuses/user_timeline.json?count=1&screen_name="
 		idURL = "https://api.twitter.com/1/statuses/show.json?id="
 		user = user_or_id['tweet_id']
 
@@ -85,6 +85,9 @@ class TweetsController < ApplicationController
 			results = JSON.parse(open(twitter_url).read)
 
 			@tweet_result = {
+				'tweet_id' => results[0]["id"],
+				'tweet_body' => results[0]["text"],
+				'retweet_count' => results[0]["retweet_count"],
 				'screen_name' => results[0]["user"]["screen_name"],
 				'real_name' => results[0]["user"]["name"],
 				'num_statuses' => results[0]["user"]["statuses_count"],

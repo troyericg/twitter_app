@@ -9,9 +9,9 @@
 		</ul>
 	</div>
 	<div class="tweet-container group">
-		<div class="avatar"><%= image_tag(status.img_url) %></div>
+		<div class="avatar" style="background:url(<%= status.img_url %>); background-size:cover;"></div>
 		<div class="tweet-body">
-			<p><%= status.tweet_body %></p>
+			<p><%= add_links(status.tweet_body) %></p>
 		</div>
 		<div class="tweet-tools">
 			<ul>
